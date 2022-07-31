@@ -26,10 +26,15 @@ function App() {
     },
   ];
 
+  function addExpenseHandler(expense) {
+    console.log("in app.js");
+    console.log(expense);
+  }
+
   // Return root HTML like (JSX) object
   return (
     <div>
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses expenses={expenses}/>
     </div>
   );

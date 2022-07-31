@@ -9,7 +9,7 @@ function ExpenseItem(props) {
     // JavaScript to determine content of component goes here
 
     // React hook. Must be called inside component function. Is executed only at initial loading of app.
-    // Returns a variable to call and a function to change variable.
+    // Returns a variable to call and a function to change variable. The argument (props.title) is the initial value.
     const [title, setTitle] = useState(props.title);
 
     // This handler updates the title variable. Each time it is called, this component is rerendered.
