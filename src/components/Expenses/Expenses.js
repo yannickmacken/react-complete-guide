@@ -18,12 +18,21 @@ function Expenses(props) {
     console.log(year)
     console.log("expenses on Expenses component", props.items)
 
+    // Get item filtered by year
+    const filteredExpenses = props.items.filter(expense => expense.date.getUTCFullYear() == year);
+
     return (
         // Create controlled component (ExpensesFilter). State is passed down, and handler function is passed down,
         // filled, and passed back up. Expenses are listed through list comprehension.
         <Card className="expenses">
             <ExpensesFilter selectedYear={year} onChangeFilter={filterChangeHandler}/>
-            {props.items.map(expense => <ExpenseItem title={expense.title} amount={expense.amount} date={expense.date}/>)}
+            {filteredExpenses.map(expense => 
+            <ExpenseItem 
+                key={expense.id}
+                title={expense.title} 
+                amount={expense.amount} 
+                date={expense.date}
+            />)}
         </Card>
     );
 }
