@@ -6,8 +6,6 @@ import "./Expenses.css";
 
 function Expenses(props) {
 
-    const expenses = props.expenses;
-
     // Define selected year as state on expenses component. Default state has to be IN single quotes!
     const [year, setYear] = useState('2020');
 
@@ -18,14 +16,14 @@ function Expenses(props) {
 
     // Print selected year in expenses component
     console.log(year)
+    console.log("expenses on Expenses component", props.items)
 
     return (
         // Create controlled component (ExpensesFilter). State is passed down, and handler function is passed down,
-        // filled, and passed back up.
+        // filled, and passed back up. Expenses are listed through list comprehension.
         <Card className="expenses">
             <ExpensesFilter selectedYear={year} onChangeFilter={filterChangeHandler}/>
-            <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date}/>
-            <ExpenseItem title={expenses[1].title} amount={expenses[1].amount} date={expenses[1].date}/>
+            {props.items.map(expense => <ExpenseItem title={expense.title} amount={expense.amount} date={expense.date}/>)}
         </Card>
     );
 }
