@@ -4,7 +4,7 @@ function ExpensesFilter(props) {
 
     function selectYearFilterHandler(event) {
 
-        // Send new expense data to parent component.
+        // Run on change method on parent component to filter by year.
         props.onChangeFilter(event.target.value);
         console.log("in expenses filter", event.target.value);
     };
